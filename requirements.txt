@@ -3,12 +3,12 @@
 numpy
 scipy
 pandas
+# Documentation dependencies
+sphinx==9.0.4
+sphinx_design==0.6.1
+pydata_sphinx_theme==0.16.1
 # Testing dependencies
 pytest
 pytest-cov
-# Documentation dependencies
-sphinx
-sphinx_design
-pydata_sphinx_theme
 # Packaging dependencies
 hatch
