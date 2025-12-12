@@ -54,7 +54,7 @@ The documentation is available at [GitHub Pages](https://lmri-met.github.io/metp
 
 ## License
 
-This project is licensed under the [BSD 3-Clause License](LICENSE.txt).
+This project is licensed under the [BSD 3-Clause License]([LICENSE.txt](https://github.com/lmri-met/metpyir/blob/main/LICENSE)).
 
 ## Support
 
