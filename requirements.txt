@@ -1,0 +1,14 @@
+# TODO: Specify minimal versions for dependencies
+# Core dependencies
+numpy
+scipy
+pandas
+# Testing dependencies
+pytest
+pytest-cov
+# Documentation dependencies
+sphinx
+sphinx_design
+pydata_sphinx_theme
+# Packaging dependencies
+hatch

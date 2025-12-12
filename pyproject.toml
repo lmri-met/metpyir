@@ -1,0 +1,70 @@
+# BUILD SYSTEM CONFIGURATION
+# Defines the tools used to build the final package.
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# HATCH BUILDER CONFIGURATION
+# Tool-specific settings for controlling what gets packaged.
+[tool.hatch.build]
+# Exclude files used only for development (tests, docs, requirements files)
+exclude = ["docs/*", "tests/*", "requirements*.txt"]
+
+# PACKAGE DISCOVERY
+# This hook automatically finds all packages inside the src/ directory and includes them.
+[tool.hatch.metadata.hooks.standard]
+# Disabling scripts is often necessary to avoid conflicts if you use other Hatch features
+disable-scripts = true
+
+# PROJECT METADATA
+[project]
+
+# Core information about the package for PyPI and users.
+name = "metpyir"
+version = "0.0.1"
+description = 'A Python toolkit for ionizing radiation metrology'
+readme = "README.md"
+requires-python = ">=3.12"
+license = "BSD-3-Clause"
+
+# Core Dependencies (for package usage) TODO: Add actual dependencies when available
+dependencies = []
+
+# Authors and Maintainers (Consolidated)
+authors = [
+    { name = "Xandra Campo", email = "xandra.campo@ciemat.es" },
+]
+maintainers = [
+    { name = "Xandra Campo", email = "xandra.campo@ciemat.es" },
+]
+
+# Keywords (for PyPI searchability) TODO: Refine keywords as needed
+keywords = [
+    # Domain/Core
+    "ionizing", "radiation", "metrology", "nuclear", "physics", "science",
+    # General/Python
+    "python", "library", "scientific", "toolkit",
+]
+
+# PyPI classifiers for filtering and categorization.
+classifiers = [
+    # Development Status & License & OS
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    # Python Version Support
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    # Audience & Topics
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Measurement",
+]
+
+# EXTERNAL LINKS
+# URLs displayed on the PyPI sidebar.
+[project.urls]
+Repository = "https://github.com/lmri-met/metpyir"
+Documentation = "https://lmri-met.github.io/metpyir/"
+Issues = "https://github.com/lmri-met/metpyir/issues"
