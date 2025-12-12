@@ -16,6 +16,7 @@ release = '0.0.1'
 
 extensions = [
     "pydata_sphinx_theme",
+    "sphinx_multiversion",
 ]
 
 templates_path = ['_templates']
@@ -40,4 +41,8 @@ html_theme_options = {
             "type": "fontawesome",
         }
     ],
+    "switcher": {
+        "json_url": "_static/versions.json",
+        "version_match": release,
+    },
 }
