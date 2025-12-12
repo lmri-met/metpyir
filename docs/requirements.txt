@@ -1,4 +1,4 @@
 # Documentation dependencies
-sphinx==9.0.4
+sphinx==8.3.0
 sphinx_design==0.6.1
 pydata_sphinx_theme==0.16.1

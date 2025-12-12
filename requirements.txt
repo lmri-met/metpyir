@@ -1,14 +1,12 @@
 # TODO: Specify minimal versions for dependencies
 # Core dependencies
-numpy
-scipy
-pandas
-# Documentation dependencies
-sphinx==9.0.4
-sphinx_design==0.6.1
-pydata_sphinx_theme==0.16.1
+# numpy
+# scipy
+# pandas
+
 # Testing dependencies
-pytest
-pytest-cov
+# pytest
+# pytest-cov
+
 # Packaging dependencies
-hatch
+# hatch
