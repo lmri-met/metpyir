@@ -1,0 +1,49 @@
+# GitHub Actions workflow to build and deploy Sphinx documentation to GitHub Pages.
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main      # Only run on pushes to the main branch
+    paths:
+      - 'docs/**' # Only trigger when files under `docs` change
+
+permissions:
+  contents: read  # Allow reading repo contents
+  pages: write    # Allow publishing to GitHub Pages
+  id-token: write # Allow OIDC token issuance for deployments
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+    steps:
+      # Checks out the repository so the workflow can access files
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Installs the requested Python version (uses latest 3.x available)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # Upgrades pip and installs Sphinx and other docs dependencies from `docs/requirements.txt`
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r docs/requirements.txt
+
+      # Runs Sphinx to build HTML output from `docs/source` into `docs/build/html`
+      - name: Build Documentation
+        run: sphinx-build -b html docs/source docs/build/html
+
+      # Packages the built HTML and uploads it for Pages deployment
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/build/html
+
+      # Deploys the uploaded artifact to GitHub Pages using the Pages permission
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
