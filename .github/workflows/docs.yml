@@ -22,7 +22,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0   # fetch full history and all tags
-          tags: true
 
       # Installs the requested Python version (uses latest 3.x available)
       - name: Set up Python
@@ -42,7 +41,7 @@ jobs:
 
       # Create a simple index.html at the root for redirection. The pydata-sphinx-theme index will then handle the version selector.
       - name: Configure Sphinx-Multiversion Root Redirect
-        run: echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=_build/html/"></head></html>' > index.html
+        run: echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=stable/"></head></html>' > _build/html/index.html
 
       # Packages the built HTML and uploads it for Pages deployment
       - name: Upload Artifacts
