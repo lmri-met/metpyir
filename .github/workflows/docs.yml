@@ -20,6 +20,9 @@ jobs:
       # Checks out the repository so the workflow can access files
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # fetch full history and all tags
+          tags: true
 
       # Installs the requested Python version (uses latest 3.x available)
       - name: Set up Python
@@ -33,9 +36,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r docs/requirements.txt
 
-      # Runs Sphinx to build HTML output from `docs/source` into `docs/build/html`
-      - name: Build Documentation
-        run: sphinx-multiversion docs/source docs/build/html
+      # The command to build multiversion docs -a -E for full rebuild from scratch -D smv_outputdir=./_build/html: essential for output path
+      - name: Build Multiversion Documentation
+        run: sphinx-multiversion -a -E -D smv_outputdir=./build/html docs build/html
+
+      # Create a simple index.html at the root for redirection. The pydata-sphinx-theme index will then handle the version selector.
+      - name: Configure Sphinx-Multiversion Root Redirect
+        run: echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=_build/html/"></head></html>' > index.html
 
       # Packages the built HTML and uploads it for Pages deployment
       - name: Upload Artifacts
