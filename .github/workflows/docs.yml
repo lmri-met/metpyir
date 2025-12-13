@@ -42,7 +42,7 @@ jobs:
 
       # Create a simple index.html at the root for redirection. The pydata-sphinx-theme index will then handle the version selector.
       - name: Configure Sphinx-Multiversion Root Redirect
-        run: echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=_build/html/"></head></html>' > docs/build/html/index.html
+        run: echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=docs/build/html/"></head></html>' > docs/build/html/index.html
 
       # Packages the built HTML and uploads it for Pages deployment
       - name: Upload Artifacts

@@ -8,7 +8,7 @@ MetPyIR documentation
 MetPyIR is a Python package that provides set of tool designed to make the implementation of
 ionizing radiation metrology procedures both easy, efficient and reproducible.
 
-Dummy text.
+Dummy text again.
 
 **More documentation coming soon!**
 
