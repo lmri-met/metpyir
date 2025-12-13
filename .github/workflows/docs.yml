@@ -38,7 +38,7 @@ jobs:
 
       # The command to build multiversion docs -a -E for full rebuild from scratch -D smv_outputdir=./_build/html: essential for output path
       - name: Build Multiversion Documentation
-        run: sphinx-multiversion -a -E -D smv_outputdir=./build/html docs build/html
+        run: sphinx-multiversion -a -E -D smv_outputdir=./build/html docs/source docs/build/html
 
       # Create a simple index.html at the root for redirection. The pydata-sphinx-theme index will then handle the version selector.
       - name: Configure Sphinx-Multiversion Root Redirect
