@@ -38,17 +38,17 @@ jobs:
 
       # The command to build multiversion docs -a -E for full rebuild from scratch -D smv_outputdir=./_build/html: essential for output path
       - name: Build Multiversion Documentation
-        run: sphinx-multiversion -a -E -D smv_outputdir=./build/html docs/source docs/build/html
+        run: sphinx-multiversion -a -E -D smv_outputdir=./_build/html docs/source _build/html
 
       # Create a simple index.html at the root for redirection. The pydata-sphinx-theme index will then handle the version selector.
       - name: Configure Sphinx-Multiversion Root Redirect
-        run: echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=docs/build/html/"></head></html>' > docs/build/html/index.html
+        run: echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=_build/html/"></head></html>' > index.html
 
       # Packages the built HTML and uploads it for Pages deployment
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/build/html
+          path: _build/html
 
       # Deploys the uploaded artifact to GitHub Pages using the Pages permission
       - name: Deploy to GitHub Pages
