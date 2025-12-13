@@ -41,4 +41,9 @@ html_theme_options = {
             "type": "fontawesome",
         }
     ],
+    "switcher": {
+        "json_url": "_static/versions.json",
+        "version_match": release,
+    },
+
 }
